@@ -14,7 +14,6 @@
   ];
 
   programs.kitty.enable = true;
-
   # Symlink config ke ~/.config/fastfetch/config.jsonc
   xdg.configFile."fastfetch/config.jsonc".source =
     ./config/halozra/fastfetch/config.jsonc;
@@ -31,3 +30,5 @@
   xdg.configFile."kitty/kitty-themes".source =
     ./config/halozra/kitty/kitty-themes;
 }
+
+

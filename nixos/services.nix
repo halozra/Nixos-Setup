@@ -1,21 +1,24 @@
 { config, pkgs, ... }:
 
 {
+  #service system
   networking.networkmanager.enable = true;
   services.printing.enable = true;
-
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-
+  services.earlyoom.enable = true; #kill app ,if system freeze
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  #Zram
+  zramSwap.enable = true;
+  zramSwap.memoryPercent = 25;
 
+  # service app
   programs.firefox.enable = true;
-
   systemd.services.mongodb-ce = {
     description = "MongoDB Community Edition";
     wantedBy = [ "multi-user.target" ];
