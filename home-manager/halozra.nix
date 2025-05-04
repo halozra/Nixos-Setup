@@ -29,6 +29,9 @@
   # Symlink folder tema ke ~/.config/kitty/kitty-themes
   xdg.configFile."kitty/kitty-themes".source =
     ./config/halozra/kitty/kitty-themes;
+
+  xdg.configFile."fish".source =
+  ./config/halozra;
 }
 
 
