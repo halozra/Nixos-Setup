@@ -9,7 +9,7 @@ This repository contains a modular and flake-based configuration for my NixOS sy
 - Custom packages (`pkgs/`)
 - Flake setup (`flake.nix`, `flake.lock`)
 
-Tested on Hyprland + GNOME. Fully declarative setup with Nix flakes.
+Tested on GNOME. Fully declarative setup with Nix flakes.
 
 ## Getting Started
 
