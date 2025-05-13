@@ -17,9 +17,26 @@
     lutris
     steam
     kdePackages.kdenlive
+    godot_4
 
     # pkgs system
+    ntfs3g
     vulkan-tools
+    vulkan-loader
+    libGL
+    libglvnd
+    mesa
+    amdvlk
+    libvdpau-va-gl
+    vim
+    neovim
+    gcc
+    dxvk
+    dconf
+    glib-networking
+
+
+
     mangohud
     git
     fish
@@ -29,12 +46,15 @@
     lm_sensors
     xdg-utils
     gamescope
-    protontricks
     gnome-tweaks
     gnomeExtensions.pop-shell
     gnomeExtensions.blur-my-shell
     gnomeExtensions.freon
+    gnomeExtensions.gsconnect
     winePackages.stable
+    winetricks
+    easyeffects
+    tree
   ];
 
   nixpkgs.config.allowUnfree = true;

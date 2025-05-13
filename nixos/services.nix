@@ -19,6 +19,16 @@
 
   # service app
   programs.firefox.enable = true;
+  programs.steam.enable = true;
+
+  hardware.graphics.enable = true;
+
+  services.gvfs.enable = true; # akses USB/NTFS lebih halus di GNOME
+  services.udisks2.enable = true; # auto-mounting disk
+
+
+
+
   systemd.services.mongodb-ce = {
     description = "MongoDB Community Edition";
     wantedBy = [ "multi-user.target" ];

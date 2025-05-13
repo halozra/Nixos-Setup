@@ -30,8 +30,8 @@
   xdg.configFile."kitty/kitty-themes".source =
     ./config/halozra/kitty/kitty-themes;
 
-  xdg.configFile."fish".source =
-  ./config/halozra;
+  xdg.configFile."fish/config.fish".source =
+  ./config/halozra/fish/config.fish;
 }
 
 

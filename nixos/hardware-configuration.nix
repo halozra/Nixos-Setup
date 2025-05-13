@@ -12,6 +12,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "ntfs" ];
+
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/16aa781c-3b7a-405f-8c9d-0ed47ca87560";
@@ -23,6 +25,18 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
+  #optional
+  fileSystems."/mnt/hdd1" = {
+    device = "/dev/disk/by-uuid/42024CB2537A99BB";
+    fsType = "ntfs";
+    options = [ "uid=1000" "gid=100" "umask=022" ];
+  };
+
+  fileSystems."/mnt/hdd2" = {
+    device = "/dev/disk/by-uuid/3282F99F2048D3B1";
+    fsType = "ntfs";
+    options = [ "uid=1000" "gid=100" "umask=022" ];
+  };
 
   swapDevices = [ ];
 
