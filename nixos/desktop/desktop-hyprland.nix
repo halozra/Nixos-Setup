@@ -2,7 +2,7 @@
 { config, pkgs, ... }:
 
 {
-  services.displayManager.sddm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "hyprland";
 
   programs.hyprland = {
@@ -11,7 +11,6 @@
   };
 
   # Optional: sound, wallpaper, notif, dll
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   hardware.bluetooth.enable = true;
 

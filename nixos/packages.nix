@@ -3,6 +3,15 @@
 {
   environment.systemPackages = with pkgs; [
 
+    # Hyperland setup
+    hyprland
+    waybar
+    wayland
+    wayland-utils
+    wlogout
+    rofi-wayland-unwrapped
+
+
     #pkgs app
     vscode
     gparted
@@ -20,7 +29,7 @@
     godot_4
 
     # pkgs system
-    hyprland
+
     ntfs3g
     vulkan-tools
     vulkan-loader

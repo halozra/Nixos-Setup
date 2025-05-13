@@ -14,6 +14,22 @@
   ];
 
   programs.kitty.enable = true;
+
+    # Autostart dan konfigurasi untuk Hyprland
+  xdg.configFile."hypr".source = ./config/halozra/hyprland/hypr;
+  xdg.configFile."halozra".source = ./config/halozra/hyprland/halozra;
+
+  # Waybar
+  xdg.configFile."waybar".source = ./config/halozra/hyprland/waybar;
+
+  # Rofi
+  xdg.configFile."rofi".source = ./config/halozra/hyprland/rofi;
+
+  # wlogout
+  xdg.configFile."wlogout".source = ./config/halozra/hyprland/wlogout;
+
+
+
   # Symlink config ke ~/.config/fastfetch/config.jsonc
   xdg.configFile."fastfetch/config.jsonc".source =
     ./config/halozra/fastfetch/config.jsonc;
