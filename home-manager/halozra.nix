@@ -15,7 +15,7 @@
 
   programs.kitty.enable = true;
 
-    # Autostart dan konfigurasi untuk Hyprland
+    # Autostart dan konfigurasi untuk Hyprlands
   xdg.configFile."hypr".source = ./config/halozra/hyprland/hypr;
   xdg.configFile."halozra".source = ./config/halozra/hyprland/halozra;
 
