@@ -14,12 +14,13 @@
     krita
     gimp
     vlc
-    lutris
+    lutris-unwrapped
     steam
     kdePackages.kdenlive
     godot_4
 
     # pkgs system
+    hyprland
     ntfs3g
     vulkan-tools
     vulkan-loader
@@ -34,6 +35,7 @@
     dxvk
     dconf
     glib-networking
+    python312Packages.pip
 
 
 

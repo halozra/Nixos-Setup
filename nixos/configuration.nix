@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./common.nix
       ./desktop/desktop-gnome.nix
+      ./desktop/desktop-hyprland.nix
       ./packages.nix
       ./services.nix
     ];
