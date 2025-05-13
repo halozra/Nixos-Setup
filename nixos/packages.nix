@@ -1,18 +1,38 @@
 { pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
 
-    # Hyperland setup
+    ##########################
+    ## 🖥️ Hyprland & Wayland Setup
+    ##########################
     hyprland
     waybar
     wayland
     wayland-utils
     wlogout
     rofi-wayland-unwrapped
+    hyprpaper
+    hyprlock
+    swaybg
+    grim
+    slurp
+    dunst
+    networkmanagerapplet
+    gtk4
+    fontconfig
 
+    ##########################
+    ## 🔤 Fonts
+    ##########################
+    fira-code-nerdfont
+    font-awesome
 
-    #pkgs app
+    ##########################
+    ## 🧰 Aplikasi Umum & Produktivitas
+    ##########################
     vscode
     gparted
     discord
@@ -23,13 +43,14 @@
     krita
     gimp
     vlc
-    lutris-unwrapped
     steam
     kdePackages.kdenlive
     godot_4
+    lutris-unwrapped
 
-    # pkgs system
-
+    ##########################
+    ## ⚙️ System Utilities & Drivers
+    ##########################
     ntfs3g
     vulkan-tools
     vulkan-loader
@@ -38,35 +59,52 @@
     mesa
     amdvlk
     libvdpau-va-gl
+    dconf
+    glib-networking
+    xdg-utils
+    lm_sensors
+    earlyoom
+    tree
+
+    ##########################
+    ## 🧑‍💻 Developer Tools
+    ##########################
     vim
     neovim
     gcc
-    dxvk
-    dconf
-    glib-networking
+    nodejs
     python312Packages.pip
-
-
-
-    mangohud
     git
+    htop
+
+    ##########################
+    ## 🎮 Gaming / Performance Tools
+    ##########################
+    dxvk
+    mangohud
+    gamescope
+    winePackages.stable
+    winetricks
+    protonup-qt
+
+    ##########################
+    ## 🐚 Shell & CLI Enhancements
+    ##########################
     fish
     starship
-    earlyoom
-    nodejs
-    lm_sensors
-    xdg-utils
-    gamescope
+
+    ##########################
+    ## 🔊 Audio Enhancement
+    ##########################
+    easyeffects
+
+    ##########################
+    ## 🧩 GNOME Tools & Extensions
+    ##########################
     gnome-tweaks
     gnomeExtensions.pop-shell
     gnomeExtensions.blur-my-shell
     gnomeExtensions.freon
     gnomeExtensions.gsconnect
-    winePackages.stable
-    winetricks
-    easyeffects
-    tree
   ];
-
-  nixpkgs.config.allowUnfree = true;
 }

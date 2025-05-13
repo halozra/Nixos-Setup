@@ -21,7 +21,7 @@
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
             # Import Home Manager configuration for user `halozra`
-            home-manager.users.halozra = import ./home-manager/halozra.nix;
+            home-manager.users.halozra = import ./home-manager/hosts/halozra.nix;
           }
         ];
       };

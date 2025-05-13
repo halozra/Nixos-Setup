@@ -13,9 +13,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  #Zram
-  zramSwap.enable = true;
-  zramSwap.memoryPercent = 25;
 
   # service app
   programs.firefox.enable = true;
