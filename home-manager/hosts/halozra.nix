@@ -11,19 +11,14 @@
     fira-code
     papirus-nord
     fastfetch
+    gnome-themes-extra
+    bibata-cursors
   ];
 
- import = [
-  ../modules/fastfetch.nix
-  ../modules/fish.nix
-  ../modules/kitty.nix
- ]
-
-
-
-
-
-
+  # Import eksternal modules
+  imports = [
+    ../modules/fastfetch.nix
+    ../modules/fish.nix
+    ../modules/kitty.nix
+  ];
 }
-
-

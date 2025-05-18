@@ -18,10 +18,16 @@
   programs.firefox.enable = true;
   programs.steam.enable = true;
 
+
+
+
   hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
 
   services.gvfs.enable = true; # akses USB/NTFS lebih halus di GNOME
   services.udisks2.enable = true; # auto-mounting disk
+    # Driver display AMD biar makin optimal
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
 
 

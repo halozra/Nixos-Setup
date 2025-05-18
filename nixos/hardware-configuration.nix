@@ -50,4 +50,11 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    # Aktifkan firmware AMD & kernel param fix
+  hardware.firmware = with pkgs; [ linux-firmware ];
+
+  boot.kernelParams = [ "amdgpu.secure_display=0" ];
+
+
+
 }

@@ -14,7 +14,6 @@
     wayland-utils
     wlogout
     rofi-wayland-unwrapped
-    hyprpaper
     hyprlock
     swaybg
     grim
@@ -23,12 +22,30 @@
     networkmanagerapplet
     gtk4
     fontconfig
+    polkit
+    wget
+    bluez
+
 
     ##########################
     ## 🔤 Fonts
     ##########################
-    fira-code-nerdfont
+      # Fonts section
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "JetBrainsMono"
+        "Hack"
+        "Noto"
+      ];
+    })
     font-awesome
+    noto-fonts
+    noto-fonts-emoji
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    material-design-icons
+
 
     ##########################
     ## 🧰 Aplikasi Umum & Produktivitas
@@ -46,7 +63,7 @@
     steam
     kdePackages.kdenlive
     godot_4
-    lutris-unwrapped
+    lutris
 
     ##########################
     ## ⚙️ System Utilities & Drivers
@@ -54,17 +71,18 @@
     ntfs3g
     vulkan-tools
     vulkan-loader
-    libGL
-    libglvnd
     mesa
-    amdvlk
-    libvdpau-va-gl
+    vulkan-utility-libraries
+    gnutls
+
     dconf
     glib-networking
     xdg-utils
     lm_sensors
     earlyoom
     tree
+    kdePackages.ark
+    unrar
 
     ##########################
     ## 🧑‍💻 Developer Tools
@@ -81,11 +99,13 @@
     ## 🎮 Gaming / Performance Tools
     ##########################
     dxvk
+    vkd3d
     mangohud
     gamescope
-    winePackages.stable
+    wineWowPackages.full
     winetricks
     protonup-qt
+    driversi686Linux.mesa
 
     ##########################
     ## 🐚 Shell & CLI Enhancements
@@ -97,6 +117,9 @@
     ## 🔊 Audio Enhancement
     ##########################
     easyeffects
+    pavucontrol
+    chromium
+
 
     ##########################
     ## 🧩 GNOME Tools & Extensions
