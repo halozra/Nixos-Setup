@@ -11,5 +11,4 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernel.sysctl."net.ipv4.ip_default_ttl" = 64; # ttl default 64
-
 }

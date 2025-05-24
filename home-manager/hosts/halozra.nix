@@ -2,7 +2,7 @@
 
 {
   home.username = "halozra";
-  home.homeDirectory = "/home/halozra";
+  home.homeDirectory = pkgs.lib.mkForce "/home/halozra";
   home.stateVersion = "24.11";
 
   home.packages = with pkgs; [
@@ -11,8 +11,10 @@
     fira-code
     papirus-nord
     fastfetch
-    gnome-themes-extra
     bibata-cursors
+    (nerdfonts.override {
+    fonts = [ "FiraCode" "JetBrainsMono" ];
+  })
   ];
 
   # Import eksternal modules

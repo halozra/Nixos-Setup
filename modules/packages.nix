@@ -5,47 +5,6 @@
 
   environment.systemPackages = with pkgs; [
 
-    ##########################
-    ## 🖥️ Hyprland & Wayland Setup
-    ##########################
-    hyprland
-    waybar
-    wayland
-    wayland-utils
-    wlogout
-    rofi-wayland-unwrapped
-    hyprlock
-    swaybg
-    grim
-    slurp
-    dunst
-    networkmanagerapplet
-    gtk4
-    fontconfig
-    polkit
-    wget
-    bluez
-
-
-    ##########################
-    ## 🔤 Fonts
-    ##########################
-      # Fonts section
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "JetBrainsMono"
-        "Hack"
-        "Noto"
-      ];
-    })
-    font-awesome
-    noto-fonts
-    noto-fonts-emoji
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    material-design-icons
-
 
     ##########################
     ## 🧰 Aplikasi Umum & Produktivitas
@@ -121,13 +80,8 @@
     chromium
 
 
-    ##########################
-    ## 🧩 GNOME Tools & Extensions
-    ##########################
-    gnome-tweaks
-    gnomeExtensions.pop-shell
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.freon
-    gnomeExtensions.gsconnect
+
   ];
+
+
 }
