@@ -4,9 +4,8 @@
 
 This repository contains a modular and flake-based configuration for my NixOS system, including:
 
-- System config (`nixos/`)
+- System config (`modules/`)
 - Home Manager config (`home-manager/`)
-- Custom packages (`pkgs/`)
 - Flake setup (`flake.nix`, `flake.lock`)
 
 Tested on GNOME. Fully declarative setup with Nix flakes.
