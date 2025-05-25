@@ -12,9 +12,8 @@
     papirus-nord
     fastfetch
     bibata-cursors
-    (nerdfonts.override {
-    fonts = [ "FiraCode" "JetBrainsMono" ];
-  })
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.jetbrains-mono
   ];
 
   # Import eksternal modules

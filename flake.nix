@@ -2,10 +2,10 @@
   description = "NixOS config with GNOME and Hyprland profiles + Home Manager";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -71,6 +71,7 @@
               boot.kernelPackages = pkgsUnstable.linuxPackages_zen;
               environment.systemPackages = with pkgsUnstable; [
                 librewolf
+                lutris
               ];
 
               home-manager.useGlobalPkgs = true;

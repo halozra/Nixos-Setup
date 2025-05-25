@@ -18,3 +18,4 @@ Clone the repo:
 git clone https://github.com/yourusername/nixos-config.git
 cd nixos-config
 sudo nixos-rebuild switch --flake .#your-hostname
+```

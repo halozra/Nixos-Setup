@@ -22,7 +22,7 @@
     steam
     kdePackages.kdenlive
     godot_4
-    lutris
+
 
     ##########################
     ## ⚙️ System Utilities & Drivers
