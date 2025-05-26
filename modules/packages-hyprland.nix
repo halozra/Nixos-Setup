@@ -24,6 +24,7 @@
     gtk4
     fontconfig
     polkit
+    polkit_gnome
     wget
     bluez
     nnn

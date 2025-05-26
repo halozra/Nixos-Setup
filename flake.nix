@@ -71,7 +71,7 @@
               boot.kernelPackages = pkgsUnstable.linuxPackages_zen;
               environment.systemPackages = with pkgsUnstable; [
                 librewolf
-                lutris
+
               ];
 
               home-manager.useGlobalPkgs = true;

@@ -57,6 +57,7 @@
     ##########################
     ## 🎮 Gaming / Performance Tools
     ##########################
+    lutris
     dxvk
     vkd3d
     mangohud

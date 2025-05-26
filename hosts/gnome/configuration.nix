@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   imports = [
     ../../modules/hardware-configuration.nix
@@ -10,10 +8,16 @@
   ];
 
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+
+  # Pakai Ly sebagai Display Manager
+  services.displayManager.ly.enable = true;
+
+  # Nonaktifkan autoLogin karena Ly manual login
+  services.displayManager.autoLogin.enable = false;
+
+
+  # Aktifkan GNOME desktop environment
   services.xserver.desktopManager.gnome.enable = true;
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "halozra";
 
   services.xserver.xkb = {
     layout = "us";
@@ -24,12 +28,11 @@
   systemd.services."autovt@tty1".enable = false;
 
   users.users.halozra = {
-  isNormalUser = true;  # karena user biasa
-  group = "halozra";    # grup utama user
-  # opsional:
-  description = "halozra";
-  home = "/home/halozra";
-  extraGroups = [ "networkmanager" "wheel" ];
+    isNormalUser = true;
+    group = "halozra";
+    description = "halozra";
+    home = "/home/halozra";
+    extraGroups = [ "networkmanager" "wheel" ];
   };
 
   users.groups.halozra = {};

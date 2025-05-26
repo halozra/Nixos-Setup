@@ -1,5 +1,3 @@
-{ config, pkgs, ... }:
-
 {
   imports = [
     ../../modules/hardware-configuration.nix
@@ -9,35 +7,27 @@
     ../../modules/packages-hyprland.nix
   ];
 
-  # 🖼️ Display Manager (pakai SDDM)
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = "halozra";
-  };
-  services.displayManager.defaultSession = "hyprland";
+  # 💡 Ganti SDDM ➜ Ly
+  services.xserver.enable = true;
+  services.displayManager.ly.enable = true;
 
-  # 🌈 Hyprland setup
+  # ❌ Autologin jangan aktif (Ly manual login)
+  services.displayManager.autoLogin.enable = false;
+
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
 
-  # 🔊 Sound dan Bluetooth
-  hardware.pulseaudio.enable = false;  # disable PA karena pipewire lebih disarankan
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth.enable = false;
 
-  # 🌐 Wayland session envs
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     XDG_SESSION_TYPE = "wayland";
     NIXOS_OZONE_WL = "1";
   };
 
-  # 👤 User config
   users.users.halozra = {
     isNormalUser = true;
     description = "halozra";

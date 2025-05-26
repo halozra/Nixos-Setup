@@ -12,6 +12,7 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.freon
     gnomeExtensions.gsconnect
+    gnomeExtensions.system-monitor
 
   ];
 
