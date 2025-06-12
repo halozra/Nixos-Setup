@@ -38,9 +38,8 @@
              };
 
 
-              boot.kernelPackages = pkgsUnstable.linuxPackages_zen;
+              boot.kernelPackages = pkgsUnstable.linuxPackages_xanmod_latest;
               environment.systemPackages = with pkgsUnstable; [
-                librewolf
               ];
 
               home-manager.useGlobalPkgs = true;
@@ -68,9 +67,8 @@
               };
 
 
-              boot.kernelPackages = pkgsUnstable.linuxPackages_zen;
+              boot.kernelPackages = pkgsUnstable.linuxPackages_xanmod_latest;
               environment.systemPackages = with pkgsUnstable; [
-                librewolf
 
               ];
 

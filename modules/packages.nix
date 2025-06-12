@@ -22,6 +22,7 @@
     steam
     kdePackages.kdenlive
     godot_4
+    osu-lazer-bin
 
 
     ##########################
@@ -42,6 +43,7 @@
     tree
     kdePackages.ark
     unrar
+    ntfs3g
 
     ##########################
     ## 🧑‍💻 Developer Tools
@@ -78,7 +80,6 @@
     ##########################
     easyeffects
     pavucontrol
-    chromium
 
 
 

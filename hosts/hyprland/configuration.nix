@@ -15,6 +15,7 @@
   services.displayManager.autoLogin.enable = false;
 
 
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
