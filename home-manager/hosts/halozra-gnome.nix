@@ -1,0 +1,25 @@
+{ config, pkgs, ... }:
+
+{
+  home.username = "halozra";
+  home.homeDirectory = pkgs.lib.mkForce "/home/halozra";
+  home.stateVersion = "25.05";
+
+  home.packages = with pkgs; [
+  gnome-tweaks
+  gnomeExtensions.pop-shell
+  gnomeExtensions.blur-my-shell
+  gnomeExtensions.freon
+  gnomeExtensions.gsconnect
+  gnomeExtensions.system-monitor
+];
+
+
+  # Import eksternal modules
+  imports = [
+    ../modules/shared-packages.nix
+    ../modules/fastfetch.nix
+    ../modules/fish.nix
+    ../modules/kitty.nix
+  ];
+}
