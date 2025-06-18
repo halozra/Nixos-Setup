@@ -17,6 +17,8 @@ environment.systemPackages = with pkgs; [
   lm_sensors
   earlyoom
   driversi686Linux.mesa
+  polkit
+  polkit_gnome
 ];
 
 }

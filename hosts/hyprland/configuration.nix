@@ -4,7 +4,6 @@
     ../../modules/common.nix
     ../../modules/packages.nix
     ../../modules/services.nix
-    ../../modules/packages-hyprland.nix
   ];
 
   # 💡 Ganti SDDM ➜ Ly

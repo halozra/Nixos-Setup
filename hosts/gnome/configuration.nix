@@ -4,7 +4,6 @@
     ../../modules/common.nix
     ../../modules/packages.nix
     ../../modules/services.nix
-    ../../modules/packages-gnome.nix
   ];
 
   services.xserver.enable = true;
