@@ -12,13 +12,21 @@
   outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, home-manager, ... }:
     let
       system = "x86_64-linux";
+
       pkgsStable = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
-      pkgsUnstable = import nixpkgs-unstable { inherit system; };
-    in
-    {
+
+      pkgsUnstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      overlayUnstable = final: prev: {
+        unstable = pkgsUnstable;
+      };
+    in {
       nixosConfigurations = {
         hyprland = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -26,25 +34,21 @@
             ./hosts/hyprland/configuration.nix
             home-manager.nixosModules.home-manager
             {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  unstable = pkgsUnstable;
-                })
-              ];
-
-              home-manager.users.halozra = import ./home-manager/hosts/halozra.nix{
-                config = {};      # sesuaikan sesuai kebutuhan
-                pkgs = pkgsStable;
-             };
-
+              nixpkgs.overlays = [ overlayUnstable ];
 
               boot.kernelPackages = pkgsUnstable.linuxPackages_xanmod_latest;
+
               environment.systemPackages = with pkgsUnstable; [
+                # sistem-level packages hyprland
               ];
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
+
+              home-manager.users.halozra = import ./home-manager/hosts/halozra-hyprland.nix {
+                pkgs= pkgsStable;
+                config = {};
+              };
             }
           ];
         };
@@ -55,26 +59,18 @@
             ./hosts/gnome/configuration.nix
             home-manager.nixosModules.home-manager
             {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  unstable = pkgsUnstable;
-                })
-              ];
+              nixpkgs.overlays = [ overlayUnstable ];
 
-              home-manager.users.halozra = import ./home-manager/hosts/halozra.nix{
-              config = {};      # sesuaikan sesuai kebutuhan
-              pkgs = pkgsStable;
-              };
+              boot.kernelPackages = pkgsUnstable.linuxPackages_zen;
 
-
-              boot.kernelPackages = pkgsUnstable.linuxPackages_xanmod_latest;
               environment.systemPackages = with pkgsUnstable; [
-
+                # sistem-level packages GNOME
               ];
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
+
+              home-manager.users.halozra = import ./home-manager/hosts/halozra-gnome.nix;
             }
           ];
         };

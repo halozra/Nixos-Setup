@@ -20,7 +20,6 @@
 
 
 
-
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
@@ -28,6 +27,17 @@
   services.udisks2.enable = true; # auto-mounting disk
     # Driver display AMD biar makin optimal
   services.xserver.videoDrivers = [ "amdgpu" ];
+
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+  automatic = true;
+  dates = "weekly";
+  options = "--delete-older-than 7d";
+};
+  programs.command-not-found.enable = false;
+
+
+
 
 
 
