@@ -1,9 +1,9 @@
 {
   imports = [
-    ../../modules/hardware-configuration.nix
-    ../../modules/common.nix
-    ../../modules/packages.nix
-    ../../modules/services.nix
+    ../../system/hardware-configuration.nix
+    ../../system/common.nix
+    ../../system/packages.nix
+    ../../system/services.nix
   ];
 
   # 💡 Ganti SDDM ➜ Ly
