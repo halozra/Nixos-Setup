@@ -13,11 +13,6 @@
     let
       system = "x86_64-linux";
 
-      pkgsStable = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
       pkgsUnstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
@@ -36,17 +31,18 @@
             {
               nixpkgs.overlays = [ overlayUnstable ];
 
-              boot.kernelPackages = pkgsUnstable.linuxPackages_xanmod_latest;
-
+              boot.kernelPackages = pkgsUnstable.linuxPackagesFor pkgsUnstable.linuxKernel.packages.linux_xanmod_latest.zenpower;
               environment.systemPackages = with pkgsUnstable; [
-                # sistem-level packages hyprland
+                lm_sensors
+                corectrl
+                # tambahkan paket lain jika perlu
               ];
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
               home-manager.users.halozra = import ./home-manager/hosts/halozra-hyprland.nix {
-                pkgs= pkgsStable;
+                pkgs = pkgsUnstable;
                 config = {};
               };
             }
@@ -64,13 +60,15 @@
               boot.kernelPackages = pkgsUnstable.linuxPackages_zen;
 
               environment.systemPackages = with pkgsUnstable; [
-                # sistem-level packages GNOME
+                # tambahkan paket GNOME jika perlu
               ];
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
-              home-manager.users.halozra = import ./home-manager/hosts/halozra-gnome.nix;
+              home-manager.users.halozra = import ./home-manager/hosts/halozra-gnome.nix {
+                pkgs = pkgsUnstable;
+              };
             }
           ];
         };
