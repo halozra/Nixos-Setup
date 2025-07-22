@@ -36,12 +36,6 @@
 };
   programs.command-not-found.enable = false;
 
-
-
-
-
-
-
   systemd.services.mongodb-ce = {
     description = "MongoDB Community Edition";
     wantedBy = [ "multi-user.target" ];

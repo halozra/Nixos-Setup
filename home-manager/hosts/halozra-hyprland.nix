@@ -7,14 +7,14 @@
 
   home.packages = with pkgs; [
   hyprland
-  waybar
+  hyprpaper
+  eww
   wayland
   wayland-utils
   wlogout
   rofi-wayland-unwrapped
   hyprlock
   swaybg
-  swww
   grim
   slurp
   dunst
@@ -37,5 +37,6 @@
     ../modules/fastfetch.nix
     ../modules/fish.nix
     ../modules/kitty.nix
+    ../config/eww
   ];
 }

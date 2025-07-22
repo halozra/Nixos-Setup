@@ -6,12 +6,18 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager.url = "github:nix-community/home-manager/release-25.05";
+
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, flake-utils, home-manager, ... }:
     let
       system = "x86_64-linux";
+
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
 
       pkgsUnstable = import nixpkgs-unstable {
         inherit system;
@@ -21,6 +27,7 @@
       overlayUnstable = final: prev: {
         unstable = pkgsUnstable;
       };
+
     in {
       nixosConfigurations = {
         hyprland = nixpkgs.lib.nixosSystem {
@@ -28,15 +35,13 @@
           modules = [
             ./hosts/hyprland/configuration.nix
             home-manager.nixosModules.home-manager
+
             {
               nixpkgs.overlays = [ overlayUnstable ];
 
-              boot.kernelPackages = pkgsUnstable.linuxPackagesFor pkgsUnstable.linuxKernel.packages.linux_xanmod_latest.zenpower;
-              environment.systemPackages = with pkgsUnstable; [
-                lm_sensors
-                corectrl
-                # tambahkan paket lain jika perlu
-              ];
+              boot.kernelPackages = pkgsUnstable.linuxPackages_xanmod_latest;
+
+              environment.systemPackages = with pkgsUnstable; [ ];
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -54,23 +59,35 @@
           modules = [
             ./hosts/gnome/configuration.nix
             home-manager.nixosModules.home-manager
+
             {
               nixpkgs.overlays = [ overlayUnstable ];
 
-              boot.kernelPackages = pkgsUnstable.linuxPackages_zen;
+              boot.kernelPackages = pkgsUnstable.linuxPackages_xanmod_latest;
 
-              environment.systemPackages = with pkgsUnstable; [
-                # tambahkan paket GNOME jika perlu
-              ];
+              environment.systemPackages = with pkgsUnstable; [ ];
 
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
 
               home-manager.users.halozra = import ./home-manager/hosts/halozra-gnome.nix {
                 pkgs = pkgsUnstable;
+                config = {};
               };
             }
           ];
+        };
+      };
+
+      homeConfigurations = {
+        halozra = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          modules = [
+            ./home-manager/hosts/halozra-hyprland.nix
+          ];
+
+          extraSpecialArgs = { };
         };
       };
     };
