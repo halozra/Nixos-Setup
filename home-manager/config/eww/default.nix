@@ -11,10 +11,10 @@ in {
 
         # eww package
         home.packages = with pkgs; [
-            eww-wayland
+            eww
             pamixer
             brightnessctl
-            (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+            nerd-fonts.jetbrains-mono
         ];
 
         # configuration

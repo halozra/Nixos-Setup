@@ -8,11 +8,10 @@
   home.packages = with pkgs; [
   hyprland
   hyprpaper
-  eww
   wayland
   wayland-utils
   wlogout
-  rofi-wayland-unwrapped
+  wofi
   hyprlock
   swaybg
   grim
@@ -23,11 +22,15 @@
   fontconfig
   wget
   bluez
-  nnn
   xfce.thunar
+  yazi
   mako
   libnotify
   imv
+  waybar
+  font-awesome
+  btop
+  eww
 ];
 
 
@@ -37,6 +40,7 @@
     ../modules/fastfetch.nix
     ../modules/fish.nix
     ../modules/kitty.nix
-    ../config/eww
+    # ../config/eww
   ];
+  # modules.eww.enable = true;
 }

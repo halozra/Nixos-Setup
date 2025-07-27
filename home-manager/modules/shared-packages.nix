@@ -6,8 +6,8 @@
   papirus-nord
   fastfetch
   bibata-cursors
-  pkgs.nerd-fonts.fira-code
-  pkgs.nerd-fonts.jetbrains-mono
+  nerd-fonts.fira-code
+  nerd-fonts.jetbrains-mono
   vscode
   gparted
   discord
@@ -28,7 +28,6 @@
   nodejs
   python312Packages.pip
   git
-  htop
 
   lutris
   dxvk
