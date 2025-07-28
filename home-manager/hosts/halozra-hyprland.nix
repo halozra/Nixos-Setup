@@ -11,7 +11,7 @@
   wayland
   wayland-utils
   wlogout
-  wofi
+  rofi-wayland
   hyprlock
   swaybg
   grim
@@ -31,6 +31,7 @@
   font-awesome
   btop
   eww
+  xfce.tumbler
 ];
 
 

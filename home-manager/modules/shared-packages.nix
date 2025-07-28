@@ -21,6 +21,7 @@
   kdePackages.kdenlive
   godot_4
   osu-lazer-bin
+  home-manager
 
   vim
   neovim
