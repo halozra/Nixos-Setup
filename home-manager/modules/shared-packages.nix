@@ -22,6 +22,7 @@
   godot_4
   osu-lazer-bin
   home-manager
+  jetbrains.pycharm-community-bin
 
   vim
   neovim
