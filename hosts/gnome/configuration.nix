@@ -1,3 +1,5 @@
+{ config, pkgs, ... }:
+
 {
   imports = [
     ../../system/hardware-configuration.nix
@@ -6,17 +8,15 @@
     ../../system/services.nix
   ];
 
-  services.xserver.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Pakai Ly sebagai Display Manager
   services.displayManager.ly.enable = true;
 
+
   # Nonaktifkan autoLogin karena Ly manual login
   services.displayManager.autoLogin.enable = false;
 
-
-  # Aktifkan GNOME desktop environment
-  services.xserver.desktopManager.gnome.enable = true;
 
   services.xserver.xkb = {
     layout = "us";
@@ -25,6 +25,7 @@
 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
+
 
   users.users.halozra = {
     isNormalUser = true;

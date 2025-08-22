@@ -10,34 +10,40 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" "zenpower" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
-  boot.supportedFilesystems = [ "ntfs" ];
-
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/16aa781c-3b7a-405f-8c9d-0ed47ca87560";
+    { device = "/dev/disk/by-uuid/098c2f39-a696-4fe9-a910-80db49323967";
       fsType = "ext4";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/86D8-8353";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/DFFE-31BC";
+    fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" ];
+   };
 
-  #optional
+
   fileSystems."/mnt/hdd1" = {
-    device = "/dev/disk/by-uuid/42024CB2537A99BB";
-    fsType = "ntfs";
-    options = [ "uid=1000" "gid=100" "umask=022" ];
+    device = "/dev/disk/by-uuid/3282F99F2048D3B1";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" "gid=100" "dmask=022" "fmask=133" ];
   };
 
   fileSystems."/mnt/hdd2" = {
-    device = "/dev/disk/by-uuid/3282F99F2048D3B1";
-    fsType = "ntfs";
-    options = [ "uid=1000" "gid=100" "umask=022" ];
+    device = "/dev/disk/by-uuid/42024CB2537A99BB";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" "gid=100" "dmask=022" "fmask=133" ];
   };
+
+
+
+
+
+
+
+
 
   swapDevices = [ ];
 
@@ -46,16 +52,9 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp6s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp3s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp4s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    # Aktifkan firmware AMD & kernel param fix
-  hardware.firmware = with pkgs; [ linux-firmware ];
-
-  boot.kernelParams = [ "amdgpu.secure_display=0" ];
-
-
-
 }

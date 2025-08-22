@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, inputs, ... }: {
   home.packages = with pkgs; [
   kitty
   tokyonight-gtk-theme
@@ -24,6 +24,7 @@
   home-manager
   jetbrains.pycharm-community-bin
 
+
   vim
   neovim
   gcc
@@ -39,6 +40,7 @@
   wineWowPackages.full
   winetricks
   protonup-qt
+  protontricks
 
   fish
   starship
@@ -48,6 +50,7 @@
   kdePackages.ark
   unrar
   tree
+  flatpak
 
   ];
 }

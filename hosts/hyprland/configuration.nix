@@ -12,7 +12,7 @@
 
   # ❌ Autologin jangan aktif (Ly manual login)
   services.displayManager.autoLogin.enable = false;
-
+  services.flatpak.enable = true;
 
 
   programs.hyprland = {
