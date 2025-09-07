@@ -25,13 +25,13 @@
    };
 
 
-  fileSystems."/mnt/hdd1" = {
+  fileSystems."/mnt/hdd2" = {
     device = "/dev/disk/by-uuid/3282F99F2048D3B1";
     fsType = "ntfs-3g";
     options = [ "rw" "uid=1000" "gid=100" "dmask=022" "fmask=133" ];
   };
 
-  fileSystems."/mnt/hdd2" = {
+  fileSystems."/mnt/hdd1" = {
     device = "/dev/disk/by-uuid/42024CB2537A99BB";
     fsType = "ntfs-3g";
     options = [ "rw" "uid=1000" "gid=100" "dmask=022" "fmask=133" ];

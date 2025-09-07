@@ -26,7 +26,15 @@
 
   # App: penting
   programs.firefox.enable = true;
-  programs.steam.enable = true;
+  programs = {
+  steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
+};
+
+
 
   # Hapus ini karena tidak ada `hardware.graphics` di module standard
   # Jika kamu mau Vulkan support, gunakan `hardware.opengl.enable`

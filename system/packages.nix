@@ -7,18 +7,21 @@ environment.systemPackages = with pkgs; [
   mongodb-ce
   ntfs3g
   vulkan-tools
-  vulkan-loader
-  mesa
   vulkan-utility-libraries
+  vulkan-validation-layers
+
   gnutls
   dconf
   glib-networking
   xdg-utils
   lm_sensors
   earlyoom
-  driversi686Linux.mesa
   polkit
   polkit_gnome
+
+  steam
 ];
+
+
 
 }

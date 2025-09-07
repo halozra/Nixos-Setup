@@ -51,6 +51,10 @@
   unrar
   tree
   flatpak
+  steam-run
+  xz
+  scanmem
+  
 
   ];
 }

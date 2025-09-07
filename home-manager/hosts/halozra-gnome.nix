@@ -12,6 +12,11 @@
   gnomeExtensions.freon
   gnomeExtensions.gsconnect
   gnomeExtensions.system-monitor
+  gnomeExtensions.appindicator
+  gnomeExtensions.caffeine
+  gnomeExtensions.user-themes
+  gnomeExtensions.just-perfection
+
 ];
 
 
