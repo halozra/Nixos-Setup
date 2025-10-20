@@ -19,7 +19,7 @@
     };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/DFFE-31BC";
+    device = "/dev/disk/by-uuid/2C26-B003";
     fsType = "vfat";
     options = [ "fmask=0077" "dmask=0077" ];
    };
@@ -36,13 +36,12 @@
     fsType = "ntfs-3g";
     options = [ "rw" "uid=1000" "gid=100" "dmask=022" "fmask=133" ];
   };
-
-
-
-
-
-
-
+  
+  fileSystems."/mnt/hdd3" = {
+    device = "/dev/disk/by-uuid/23F52D3E4CB4A209";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" "gid=100" "dmask=022" "fmask=133" "exec" ];
+  };
 
 
   swapDevices = [ ];

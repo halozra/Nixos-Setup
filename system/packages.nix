@@ -18,8 +18,10 @@ environment.systemPackages = with pkgs; [
   earlyoom
   polkit
   polkit_gnome
-
+  gamemode
   steam
+  i2c-tools
+
 ];
 
 

@@ -16,6 +16,7 @@
   gnomeExtensions.caffeine
   gnomeExtensions.user-themes
   gnomeExtensions.just-perfection
+  gnomeExtensions.dash-to-dock
 
 ];
 
