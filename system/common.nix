@@ -6,6 +6,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
   users.defaultUserShell = pkgs.fish;
 
+
   programs.fish.enable = true;
   programs.starship.enable = true;
   boot.loader.systemd-boot.enable = true;

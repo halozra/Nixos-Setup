@@ -17,7 +17,6 @@
     vim
     neovim
     vscode
-    jetbrains.pycharm-community-bin
     unityhub
     drawio
 
@@ -31,19 +30,18 @@
     vkd3d
     wineWowPackages.full
     winetricks
-    protonup-qt
     protontricks
     osu-lazer-bin
     prismlauncher
     scanmem
-    openrgb-with-all-plugins
 
     # ── Media & Creative
     vlc
     gimp
     krita
     kdePackages.kdenlive
-    godot_4
+    godotPackages_4_4.godot
+    cacert
 
     # ── Internet & Communication
     google-chrome
@@ -52,16 +50,6 @@
     # ── Database Tools
     mongodb-compass
     postman
-
-    # ── GTK / Icon / Theme / Fonts
-    tokyonight-gtk-theme
-    whitesur-gtk-theme
-    papirus-nord
-    tela-icon-theme
-    bibata-cursors
-    fira-code
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
 
     # ── System Utilities
     home-manager

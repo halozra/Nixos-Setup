@@ -3,7 +3,7 @@
 {
   home.username = "halozra";
   home.homeDirectory = pkgs.lib.mkForce "/home/halozra";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
   hyprland
@@ -11,7 +11,7 @@
   wayland
   wayland-utils
   wlogout
-  rofi-wayland
+  rofi
   hyprlock
   swaybg
   grim
@@ -41,7 +41,9 @@
     ../modules/fastfetch.nix
     ../modules/fish.nix
     ../modules/kitty.nix
-    # ../config/eww
+    ../modules/fonts.nix
+    ../modules/themes.nix
+
   ];
   # modules.eww.enable = true;
 }

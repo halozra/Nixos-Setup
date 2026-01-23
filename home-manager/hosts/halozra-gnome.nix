@@ -3,7 +3,7 @@
 {
   home.username = "halozra";
   home.homeDirectory = pkgs.lib.mkForce "/home/halozra";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
   gnome-tweaks
@@ -27,5 +27,7 @@
     ../modules/fastfetch.nix
     ../modules/fish.nix
     ../modules/kitty.nix
+    ../modules/fonts.nix
+    ../modules/themes.nix
   ];
 }

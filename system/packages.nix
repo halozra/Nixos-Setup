@@ -21,6 +21,7 @@ environment.systemPackages = with pkgs; [
   gamemode
   steam
   i2c-tools
+  fastfetch
 
 ];
 
