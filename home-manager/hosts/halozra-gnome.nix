@@ -3,7 +3,7 @@
 {
   home.username = "halozra";
   home.homeDirectory = pkgs.lib.mkForce "/home/halozra";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
   gnome-tweaks
