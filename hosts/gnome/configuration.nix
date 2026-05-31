@@ -70,7 +70,7 @@
     hashedPassword = "$6$KJs7SY/zbQ63dr5p$fczoIHq9lXpzshaznNWmrLwYyLxoojZsQOxC.nHw3O0uqUmxrtx1INrYCkcCG.0nnJjyTnVtQO3UILS1TrcOj0";
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
 }
