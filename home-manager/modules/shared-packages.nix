@@ -28,7 +28,7 @@
     mangohud
     dxvk
     vkd3d
-    wineWowPackages.full
+    wineWow64Packages.full
     winetricks
     protontricks
     osu-lazer-bin
@@ -59,10 +59,13 @@
     kdePackages.ark
     pavucontrol
     easyeffects
+    yazi
+    virtualbox
 
     # Browser
     librewolf
     google-chrome
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
   ];
 }

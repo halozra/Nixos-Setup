@@ -2,24 +2,22 @@
 
 {
   home.username = "halozra";
-  home.homeDirectory = pkgs.lib.mkForce "/home/halozra";
+  home.homeDirectory = "/home/halozra"; # Sederhanakan jadi seperti ini
   home.stateVersion = "26.05";
 
   home.packages = with pkgs; [
-  gnome-tweaks
-  gnomeExtensions.pop-shell
-  gnomeExtensions.blur-my-shell
-  gnomeExtensions.freon
-  gnomeExtensions.gsconnect
-  gnomeExtensions.system-monitor
-  gnomeExtensions.appindicator
-  gnomeExtensions.caffeine
-  gnomeExtensions.user-themes
-  gnomeExtensions.just-perfection
-  gnomeExtensions.dash-to-dock
-
-];
-
+    gnome-tweaks
+    gnomeExtensions.pop-shell
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.freon
+    gnomeExtensions.gsconnect
+    gnomeExtensions.system-monitor
+    gnomeExtensions.appindicator
+    gnomeExtensions.caffeine
+    gnomeExtensions.user-themes
+    gnomeExtensions.just-perfection
+    gnomeExtensions.dash-to-dock
+  ];
 
   # Import eksternal modules
   imports = [

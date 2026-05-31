@@ -4,9 +4,6 @@
   # Networking
   networking.networkmanager.enable = true;
 
-  services.udev.packages = [ pkgs.openrgb ];
-
-
   # Audio (gunakan PipeWire modern)
   security.rtkit.enable = true;
   services.pipewire = {
@@ -29,17 +26,16 @@
 
   # App: penting
   programs = {
-  steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    extraCompatPackages = [ pkgs.gamemode ];
-   };
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      extraCompatPackages = [ pkgs.gamemode ];
+    };
   };
+
   programs.gamemode = {
     enable = true;
-
-    # opsional: setting tambahan
     settings = {
       general = {
         desiredgov = "performance"; # pakai governor CPU performance
@@ -50,17 +46,13 @@
     };
   };
 
-
-  # Hapus ini karena tidak ada `hardware.graphics` di module standard
-  # Jika kamu mau Vulkan support, gunakan `hardware.opengl.enable`
-hardware.graphics.enable = true;
-hardware.graphics.extraPackages = with pkgs; [
+  # Graphics / Vulkan Support
+  hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
     mesa
     vulkan-loader
-];
-
-hardware.graphics.enable32Bit = true;
-
+  ];
+  hardware.graphics.enable32Bit = true;
 
   # Nix Store cleanup
   nix.settings.auto-optimise-store = true;
@@ -73,31 +65,10 @@ hardware.graphics.enable32Bit = true;
   # Disable feature yang jarang dipakai
   programs.command-not-found.enable = false;
 
-  services = {
-    hardware.openrgb = {
-      enable = true;
-      motherboard = "amd";
-      package = pkgs.openrgb-with-all-plugins;
-    };
-    # I have no idea what the second tag is supposed to be or if it matters
-    udev.extraRules = ''
-      SUBSYSTEMS=="usb|hidraw", ATTRS{idVendor}=="1002", ATTRS{idProduct}=="744C", TAG+="uaccess", TAG+="Sapphire_Nitro+_Radeon_RX_7900_XTX_GPU" 
-    '';
-  };
-  hardware = {
-    i2c.enable = true;
-  };
 
-  users.groups.i2c.members = [ "void" ];
-
-
-
-
-
-
-
-
-  # MongoDB CE Custom Service
+  # =========================================================================
+  # MONGODB CE SERVICE (Non-aktif: Hapus '#' di bawah ini jika ingin dipakai)
+  # =========================================================================
   # systemd.services.mongodb-ce = {
   #   description = "MongoDB Community Edition";
   #   wantedBy = [ "multi-user.target" ];
