@@ -44,7 +44,7 @@
     cacert
 
     # ── Internet & Communication
-    google-chrome
+    
     discord
 
     # ── Database Tools
@@ -59,5 +59,10 @@
     kdePackages.ark
     pavucontrol
     easyeffects
+
+    # Browser
+    librewolf
+    google-chrome
+
   ];
 }

@@ -28,7 +28,6 @@
   services.xserver.videoDrivers = [ "amdgpu" ];
 
   # App: penting
-  programs.firefox.enable = true;
   programs = {
   steam = {
     enable = true;
