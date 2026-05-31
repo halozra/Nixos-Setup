@@ -1,0 +1,85 @@
+{ config, pkgs, ... }:
+
+{
+  # Networking
+  networking.networkmanager.enable = true;
+
+  # Audio (gunakan PipeWire modern)
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+  services.pulseaudio.enable = false; # sudah digantikan PipeWire
+
+  # Power management / stabilitas
+  services.earlyoom.enable = true; # auto-kill saat OOM
+
+  # File system & USB support (GNOME/Hyprland tetap pakai ini)
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
+  # GPU Driver
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
+  # App: penting
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      extraCompatPackages = [ pkgs.gamemode ];
+    };
+  };
+
+  programs.gamemode = {
+    enable = true;
+    settings = {
+      general = {
+        desiredgov = "performance"; # pakai governor CPU performance
+      };
+      gpu = {
+        apply_gpu_clocks = "no";
+      };
+    };
+  };
+
+  # Graphics / Vulkan Support
+  hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
+    mesa
+    vulkan-loader
+  ];
+  hardware.graphics.enable32Bit = true;
+
+  # Nix Store cleanup
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
+  # Disable feature yang jarang dipakai
+  programs.command-not-found.enable = false;
+
+
+  # =========================================================================
+  # MONGODB CE SERVICE (Non-aktif: Hapus '#' di bawah ini jika ingin dipakai)
+  # =========================================================================
+  # systemd.services.mongodb-ce = {
+  #   description = "MongoDB Community Edition";
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "network.target" ];
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.mongodb-ce}/bin/mongod --dbpath /var/lib/mongodb";
+  #     Restart = "always";
+  #   };
+  #   preStart = ''
+  #     mkdir -p /var/lib/mongodb
+  #     chown -R ${config.users.users.halozra.name} /var/lib/mongodb
+  #   '';
+  # };
+}
