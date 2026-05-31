@@ -170,4 +170,4 @@ sudo nixos-rebuild switch --flake .#gnome
 
 # 📜 Lisensi
 
-Repositori ini tersedia untuk dipelajari, dimodifikasi, dan dijadikan referensi sesuai kebutuhan masing-masing.
+Repositori ini tersedia untuk dipelajari, dimodifikasi, dan dijadikan referensi sesuai kebutuhan masing-masing
