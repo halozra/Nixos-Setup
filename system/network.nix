@@ -9,7 +9,7 @@
   networking.networkmanager.enable = true;
 
   # Nama Komputer kamu di dalam jaringan lokal
-  networking.hostName = "halozra"; # Ganti sesukamu beb
+  networking.hostName = "nixos";
 
   # =========================================================================
   # FIREWALL SECURITY (Sangat Direkomendasikan)
