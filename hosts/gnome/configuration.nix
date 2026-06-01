@@ -18,8 +18,6 @@
     ../../system/kernel.nix
   ];
 
-
-
   # User & Security
   users.users.halozra = {
     isNormalUser = true;
