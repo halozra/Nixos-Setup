@@ -39,7 +39,7 @@
 
   # Import eksternal modules
   imports = [
-    ../modules/shared-packages.nix
+    ../../apps/apps/nix
     ../modules/fastfetch.nix
     ../modules/fish.nix
     ../modules/kitty.nix
