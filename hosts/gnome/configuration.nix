@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ../../system/hardware-configuration.nix
     ../../system/common.nix
-    ../../system/packages.nix
+    ../../system/systemApps.nix
     ../../system/desktop/gnome.nix
     ../../system/graphics.nix
     ../../system/audio.nix
