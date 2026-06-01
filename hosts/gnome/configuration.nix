@@ -4,8 +4,8 @@
   imports = [
     ../../system/hardware-configuration.nix
     ../../system/common.nix
-    ../apps/systemApps.nix
-    ../desktop/gnome.nix
+    ../../apps/systemApps.nix
+    ../../desktop/gnome.nix
     ../../system/graphics.nix
     ../../system/audio.nix
     ../../system/network.nix
