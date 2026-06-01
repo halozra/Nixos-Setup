@@ -1,20 +1,22 @@
 { config, pkgs, ... }:
 
 {
+  # =========================================================================
+  # CONFIGURASI SYSTEM DASAR (COMMON)
+  # =========================================================================
+  
+  # Aktifkan fitur modern Nix Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  # Setelan wilayah & bahasa
   time.timeZone = "Asia/Jakarta";
   i18n.defaultLocale = "en_US.UTF-8";
-  users.defaultUserShell = pkgs.fish;
 
-
-  programs.fish.enable = true;
-  programs.starship.enable = true;
+  # Setelan Bootloader Utama
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernel.sysctl."net.ipv4.ip_default_ttl" = 64; # ttl default 64
-  boot = {
-    kernelModules = [ "12c-dev" "12c-piix4" ];
-  };
 
-
+  # Setelan default shell global untuk sistem
+  users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
 }
