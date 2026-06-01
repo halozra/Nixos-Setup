@@ -4,7 +4,6 @@
   # AUDIO (PipeWire Modern)
   # =========================================================================
   security.rtkit.enable = true;
-  services.pulseaudio.enable = false; # Sudah digantikan oleh PipeWire
 
   services.pipewire = {
     enable = true;
