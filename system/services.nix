@@ -1,44 +1,71 @@
 { config, pkgs, ... }:
 
 {
-  # Networking
+  # =========================================================================
+  # NETWORKING & SYSTEM SERVICES
+  # =========================================================================
   networking.networkmanager.enable = true;
 
-  # Audio (gunakan PipeWire modern)
+  # Power management / stabilitas (auto-kill saat OOM)
+  services.earlyoom.enable = true;
+
+  # File system & USB storage support (Penting untuk GNOME/Hyprland)
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
+
+  # =========================================================================
+  # AUDIO (PipeWire Modern)
+  # =========================================================================
   security.rtkit.enable = true;
+  services.pulseaudio.enable = false; # Sudah digantikan oleh PipeWire
+
   services.pipewire = {
     enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  services.pulseaudio.enable = false; # sudah digantikan PipeWire
 
-  # Power management / stabilitas
-  services.earlyoom.enable = true; # auto-kill saat OOM
 
-  # File system & USB support (GNOME/Hyprland tetap pakai ini)
-  services.gvfs.enable = true;
-  services.udisks2.enable = true;
-
-  # GPU Driver
+  # =========================================================================
+  # GRAPHICS & GPU DRIVERS
+  # =========================================================================
+  # Pilih salah satu driver di bawah ini sesuai GPU yang kamu gunakan:
+  
+  # ---> AKTIF: Driver AMD Grafis
   services.xserver.videoDrivers = [ "amdgpu" ];
+  
+  # ---> NON-AKTIF: Driver Intel Modern (Hapus '#' di bawah jika ganti Intel)
+  # services.xserver.videoDrivers = [ "modesetting" ];
 
-  # App: penting
-  programs = {
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      extraCompatPackages = [ pkgs.gamemode ];
-    };
+  # Hardware Acceleration & Vulkan Support
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      mesa
+      vulkan-loader
+      # intel-media-driver # Aktifkan ini jika menggunakan GPU Intel (VA-API)
+    ];
+  };
+
+
+  # =========================================================================
+  # GAMING & APPLICATIONS
+  # =========================================================================
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    extraCompatPackages = [ pkgs.gamemode ];
   };
 
   programs.gamemode = {
     enable = true;
     settings = {
       general = {
-        desiredgov = "performance"; # pakai governor CPU performance
+        desiredgov = "performance"; # Pakai governor CPU performance saat main game
       };
       gpu = {
         apply_gpu_clocks = "no";
@@ -46,15 +73,13 @@
     };
   };
 
-  # Graphics / Vulkan Support
-  hardware.graphics.enable = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    mesa
-    vulkan-loader
-  ];
-  hardware.graphics.enable32Bit = true;
+  # Matikan fitur pencarian command yang jarang dipakai (hemat resource rebuild)
+  programs.command-not-found.enable = false;
 
-  # Nix Store cleanup
+
+  # =========================================================================
+  # NIX STORE MANAGEMENT (Optimization & GC)
+  # =========================================================================
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true;
@@ -62,13 +87,12 @@
     options = "--delete-older-than 1d";
   };
 
-  # Disable feature yang jarang dipakai
-  programs.command-not-found.enable = false;
-
 
   # =========================================================================
-  # MONGODB CE SERVICE (Non-aktif: Hapus '#' di bawah ini jika ingin dipakai)
+  # DATABASE SERVICES (Opsional)
   # =========================================================================
+  # MONGODB CE SERVICE (Hapus '#' di bawah ini jika ingin digunakan)
+  # -------------------------------------------------------------------------
   # systemd.services.mongodb-ce = {
   #   description = "MongoDB Community Edition";
   #   wantedBy = [ "multi-user.target" ];
