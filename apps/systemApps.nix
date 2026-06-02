@@ -22,6 +22,8 @@ environment.systemPackages = with pkgs; [
   steam
   i2c-tools
   fastfetch
+  winboat
+  virtualbox
 
 ];
 
