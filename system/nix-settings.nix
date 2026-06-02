@@ -17,16 +17,10 @@
   # =========================================================================
   xdg.portal = {
     enable = true;
-    xdgOpenUsePortal = true; 
-    extraPortals = [ 
-      pkgs.xdg-desktop-portal-gnome  
-      pkgs.xdg-desktop-portal-gtk    
-    ];
-    config = {
-      common = {
-        default = [ "gnome" "gtk" ];
-        "org.freedesktop.impl.portal.FileChooser" = [ "gnome" "gtk" ];
-      };
-    };
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    # Jika Anda menggunakan KDE Plasma, ganti/tambahkan pkgs.xdg-desktop-portal-kde
+    
+    # Setelan untuk memastikan kecocokan portal di beberapa DE
+    config.common.default = "*";
   };
 }

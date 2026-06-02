@@ -27,6 +27,6 @@
   ];
 
   # Bersihkan layar bootloader dari text log sistem yang berantakan (Opsional - Mode Cantik)
-  boot.consoleLogLevel = 3;
-  boot.kernelParams = [ "quiet" "splash" ];
+  # boot.consoleLogLevel = 3;
+  # boot.kernelParams = [ "quiet" "splash" ];
 }
