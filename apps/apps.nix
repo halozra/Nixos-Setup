@@ -60,7 +60,6 @@
     pavucontrol
     easyeffects
     yazi
-    virtualbox
     winbox
     gns3-gui
     gns3-server
