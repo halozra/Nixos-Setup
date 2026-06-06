@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../desktop/gnome.nix # <--- untuk mengganti desktop environment,cukup ganti file ini dengan desktiop enviroment yang di inginkan cuy
+    ../../desktop/kde.nix # <--- untuk mengganti desktop environment,cukup ganti file ini dengan desktiop enviroment yang di inginkan cuy
     ../halozra/hardware-configuration.nix
     ../../system/common.nix
     ../../apps/systemApps.nix
