@@ -16,6 +16,7 @@
     ../../system/virtualization.nix
     ../../system/nix-settings.nix
     ../../system/kernel.nix
+    ../../system/virtualization.nix
   ];
 
   # User & Security

@@ -4,6 +4,13 @@
   home.username = "halozra";
   home.homeDirectory = pkgs.lib.mkForce "/home/halozra";
   home.stateVersion = "26.05";
+  xdg.configFile."hypr/hyprpaper.conf" = {
+    text = ''
+      preload = /home/halozra/.config/halozra/wallpapers/c7b3d32dfb.jpg
+      wallpaper = HDMI-A-1,/home/halozra/.config/halozra/wallpapers/c7b3d32dfb.jpg
+    '';
+    force = true;
+  };
 
   home.packages = with pkgs; [
   hyprland
@@ -22,7 +29,7 @@
   fontconfig
   wget
   bluez
-  xfce.thunar
+  thunar
   yazi
   mako
   libnotify
@@ -31,13 +38,13 @@
   font-awesome
   btop
   eww
-  xfce.tumbler
+  tumbler
 ];
 
 
   # Import eksternal modules
   imports = [
-    ../modules/shared-packages.nix
+    ../../apps/apps.nix
     ../modules/fastfetch.nix
     ../modules/fish.nix
     ../modules/kitty.nix

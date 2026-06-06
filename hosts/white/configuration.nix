@@ -2,20 +2,19 @@
 
 {
   imports = [
+    ../../desktop/gnome.nix
     ../../system/hardware-configuration.nix
     ../../system/common.nix
     ../../apps/systemApps.nix
-    ../../desktop/gnome.nix
     ../../system/graphics.nix
     ../../system/audio.nix
     ../../system/network.nix
-    
-    # Hasil pecahan baru kita:
     ../../system/services.nix
     ../../system/gaming.nix
     ../../system/virtualization.nix
     ../../system/nix-settings.nix
     ../../system/kernel.nix
+    ../../system/virtualization.nix
   ];
 
   # User & Security
