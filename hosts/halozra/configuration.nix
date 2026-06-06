@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ../../desktop/gnome.nix
-    ../../system/hardware-configuration.nix
+    ../../desktop/gnome.nix # <--- untuk mengganti desktop environment,cukup ganti file ini dengan desktiop enviroment yang di inginkan cuy
+    ../halozra/hardware-configuration.nix
     ../../system/common.nix
     ../../apps/systemApps.nix
     ../../system/graphics.nix

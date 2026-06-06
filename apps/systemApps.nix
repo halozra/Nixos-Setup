@@ -23,6 +23,7 @@ environment.systemPackages = with pkgs; [
   i2c-tools
   fastfetch
   winboat
+  dolphin
 
 ];
 

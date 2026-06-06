@@ -11,20 +11,23 @@
     dates = "weekly";
     options = "--delete-older-than 1d";
   };
+{ config, pkgs, ... }:
 
-  # # =========================================================================
-  # # XDG DESKTOP PORTAL (Jembatan File Picker Desktop)
-  # # =========================================================================
-  # xdg.portal = {
-  #     enable = true;
-  #     xdgOpenUsePortal = true;
-  #     extraPortals = [ 
-  #       pkgs.xdg-desktop-portal-gtk
-  #     ];
-  #     config = {
-  #       common = {
-  #         default = [ "gtk" ];
-  #       };
-  #     };
-  #   };
+{
+  # ... konfigurasi username, homeDirectory, dan imports kamu ...
+
+  # =========================================================================
+  # SET DOLPHIN SEBAGAI FILE MANAGER DEFAULT (BAIK DI GNOME MAUPUN HYPRLAND)
+  # =========================================================================
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      # Memaksa sistem membuka folder menggunakan Dolphin, bukan Nautilus (GNOME)
+      "inode/directory" = [ "org.kde.dolphin.desktop" ];
+    };
+  };
+  
+  # Opsional: Memaksa menimpa file mimeapps.list lama agar tidak konflik
+  xdg.configFile."mimeapps.list".force = true; 
+}
 }
