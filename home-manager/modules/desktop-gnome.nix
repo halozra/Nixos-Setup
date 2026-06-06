@@ -1,35 +1,28 @@
 { pkgs, ... }:
 
 {
-  # 1. dconf wajib aktif agar tema & extension dibaca sistem
+  # 1. dconf wajib aktif agar tema & konfigurasi extension dibaca oleh GNOME
   dconf.enable = true;
 
-  # 2. Aplikasi utilitas pendukung GNOME
+  # 2. Kembalikan paket extension ke home.packages (Cara aman & valid di Home Manager)
   home.packages = with pkgs; [
     gnome-tweaks
+    gnomeExtensions.pop-shell
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.freon
+    gnomeExtensions.gsconnect
+    gnomeExtensions.system-monitor
+    gnomeExtensions.appindicator
+    gnomeExtensions.caffeine
+    gnomeExtensions.user-themes
+    gnomeExtensions.just-perfection
+    gnomeExtensions.dash-to-dock
   ];
 
-  # 3. Manajemen Gnome Extensions otomatis lewat Home Manager
-  programs.gnome-extensions = {
-    enable = true;
-    extensions = with pkgs.gnomeExtensions; [
-      pop-shell
-      blur-my-shell
-      freon
-      gsconnect
-      system-monitor
-      appindicator
-      caffeine
-      user-themes
-      just-perfection
-      dash-to-dock
-    ];
-  };
-
-  # 4. Memaksa GNOME untuk langsung menyalakan semua extension di atas pas kamu login
+  # 3. Otomatisasi dconf biar pas beres rebuild, extension-nya LANGSUNG NYALA
   dconf.settings = {
     "org/gnome/shell" = {
-      disable-user-extensions = false;
+      disable-user-extensions = false; # Izinkan extension pihak ketiga
       enabled-extensions = [
         "pop-shell@system76.com"
         "blur-my-shell@alignment"
