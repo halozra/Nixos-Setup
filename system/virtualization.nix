@@ -3,7 +3,7 @@
 {
   # # Mengaktifkan modul kernel host VirtualBox
   virtualisation.virtualbox.host.enable = true;
-  nixpkgs.config.virtualbox.enableExtensionPack = true;
+  virtualisation.virtualbox.host.enableExtensionPack =true;
   
   # Otomatis mendaftarkan user utama ke grup VirtualBox
   users.extraGroups.vboxusers.members = [ "halozra" ]; 
