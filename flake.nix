@@ -26,7 +26,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.halozra = import ./home-manager/hosts/halozra-gnome.nix;
+            home-manager.users.halozra = import ./home-manager/hosts/halozra.nix;
           }
         ];
       };
