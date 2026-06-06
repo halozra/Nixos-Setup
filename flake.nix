@@ -16,11 +16,11 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
       # --- Profil 1: GNOME ---
-      white = nixpkgs.lib.nixosSystem {
+      halozra = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./hosts/white/configuration.nix
+          ./hosts/halozra/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -30,40 +30,7 @@
           }
         ];
       };
-      
-      # --- Profil 2: Hyprland ---
-      hyprland = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/hyprland/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.halozra = import ./home-manager/hosts/halozra-hyprland.nix;
-          }
-        ];
-      };
 
-
-
-      # --- Profil 3: KDE Plasma ---
-      kde = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/kde/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.halozra = import ./home-manager/hosts/halozra-kde.nix;
-          }
-        ];
-      }; # <--- Sekarang tanda tutup nixosConfigurations aman di sini
       
     };
   };
