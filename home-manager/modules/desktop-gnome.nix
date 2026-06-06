@@ -7,7 +7,6 @@
   # 2. Kembalikan paket extension ke home.packages (Cara aman & valid di Home Manager)
   home.packages = with pkgs; [
     gnome-tweaks
-    gnomeExtensions.pop-shell
     gnomeExtensions.blur-my-shell
     gnomeExtensions.freon
     gnomeExtensions.gsconnect
