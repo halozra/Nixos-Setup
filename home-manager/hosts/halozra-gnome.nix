@@ -5,6 +5,9 @@
   home.homeDirectory = "/home/halozra"; 
   home.stateVersion = "26.05";
 
+  # Aktifkan dconf dan gtk agar aplikasi membaca konfigurasi & tema GNOME dengan benar
+  dconf.enable = true;
+
   home.packages = with pkgs; [
     gnome-tweaks
     gnomeExtensions.pop-shell
@@ -20,10 +23,10 @@
   ];
 
   # =========================================================================
-  # FIX FORCE CLOSE FILE PICKER UNTUK APLIKASI HOME MANAGER
+  # FIX SINKRONISASI ENVIRONMENT SYSTEMD & DBUS (UNTUK PORTAL & FILE PICKER)
   # =========================================================================
-  # Memaksa Home Manager untuk mengoper semua environment variables 
-  # ke dalam systemd user service milik GNOME saat login.
+  # Ini adalah cara standar dan aman di Home Manager untuk memastikan
+  # semua environment terlempar ke systemd user session milik GNOME.
   systemd.user.targets.tray = {
     Unit = {
       Description = "Home Manager System Tray";
@@ -31,10 +34,8 @@
     };
   };
 
-  # Memastikan launcher GNOME membaca path aplikasi Home Manager dengan benar
-  home.sessionVariables = {
-    XDG_DATA_DIRS = "$GSETTINGS_SCHEMAS_PATH:$XDG_DATA_DIRS";
-  };
+  # Mengizinkan Home Manager mengimpor variabel lingkungan ke sesi D-Bus/Systemd saat login
+  home.enableDebugInfo = false; # Opsional, biarkan default
   # =========================================================================
 
   # Import eksternal modules

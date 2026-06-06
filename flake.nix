@@ -21,6 +21,7 @@
       # --- Profil 1: Hyprland ---
       hyprland = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/hyprland/configuration.nix
           home-manager.nixosModules.home-manager
@@ -37,6 +38,7 @@
       # --- Profil 2: GNOME ---
       gnome = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/gnome/configuration.nix
           home-manager.nixosModules.home-manager
@@ -49,6 +51,21 @@
         ];
       };
     };
+      kde = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/kde/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              # PERBAIKAN 2: Oper inputs agar bisa dibaca di dalam file .nix sub-folder
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.halozra = import ./home-manager/hosts/halozra-kde.nix;
+            }
+          ];
+        };
     
     # PERBAIKAN 3: Blok homeConfigurations standalone yang redundan telah DIHAPUS 
     # karena manajemen user sudah dihandle penuh di dalam nixosConfigurations di atas.

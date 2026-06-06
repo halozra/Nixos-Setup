@@ -12,15 +12,19 @@
     options = "--delete-older-than 1d";
   };
 
-  # =========================================================================
-  # XDG DESKTOP PORTAL (Jembatan File Picker Desktop)
-  # =========================================================================
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    # Jika Anda menggunakan KDE Plasma, ganti/tambahkan pkgs.xdg-desktop-portal-kde
-    
-    # Setelan untuk memastikan kecocokan portal di beberapa DE
-    config.common.default = "*";
-  };
+  # # =========================================================================
+  # # XDG DESKTOP PORTAL (Jembatan File Picker Desktop)
+  # # =========================================================================
+  # xdg.portal = {
+  #     enable = true;
+  #     xdgOpenUsePortal = true;
+  #     extraPortals = [ 
+  #       pkgs.xdg-desktop-portal-gtk
+  #     ];
+  #     config = {
+  #       common = {
+  #         default = [ "gtk" ];
+  #       };
+  #     };
+  #   };
 }
