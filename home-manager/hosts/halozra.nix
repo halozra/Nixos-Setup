@@ -27,7 +27,7 @@
     ../modules/themes.nix
 
     # # kalau mau pakai gnome aktifkan ini aja
-    # ../modules/desktop-gnome.nix
+    ../modules/desktop-gnome.nix
     # # kalau mau pakai hyprland aktifkan ini aja
     # ../modules/desktop-hyprland.nix # <-- Tinggal buka comment ini kalau di PC mau pake Hyprland juga!
   ];
