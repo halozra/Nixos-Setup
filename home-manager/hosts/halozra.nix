@@ -25,6 +25,7 @@
     ../modules/kitty.nix
     ../modules/fonts.nix
     ../modules/themes.nix
+    ../modules/dolphin.nix
 
     # # kalau mau pakai gnome aktifkan ini aja
     ../modules/desktop-gnome.nix
