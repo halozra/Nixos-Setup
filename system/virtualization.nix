@@ -1,16 +1,17 @@
-{ ... }:
+{ config, pkgs, ... }:
 
 {
-  # # Mengaktifkan modul kernel host VirtualBox
+  # 1. Aktifkan VirtualBox di level sistem OS
   virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack =true;
   
-  # Otomatis mendaftarkan user utama ke grup VirtualBox
-  users.extraGroups.vboxusers.members = [ "halozra" ]; 
-  # # Mengaktifkan Docker Daemon
-  # virtualisation.docker.enable = true;
+  # 2. (Opsional) Aktifkan Extension Pack biar bisa baca USB 2.0/3.0 di dalam VM
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 
-  # # Otomatis menambahkan user kamu ke dalam grup docker 
-  # # Supaya bisa jalanin perintah docker tanpa harus ngetik 'sudo' terus-menerus
-  # users.users.halozra.extraGroups = [ "docker" ];
+  # 3. Masukkan user halozra ke dalam grup resmi VirtualBox (vboxusers)
+  users.users.halozra = {
+    extraGroups = [ "vboxusers" ]; # Pakai 's' di belakangnya ya, beb!
+  };
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
+
 }
