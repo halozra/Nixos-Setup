@@ -1,20 +1,27 @@
+
 { pkgs, ... }:
 
 {
   imports = [
-    ../../desktop/kde.nix # <--- untuk mengganti desktop environment,cukup ganti file ini dengan desktiop enviroment yang di inginkan cuy
-    ../halozra/hardware-configuration.nix
-    ../../system/common.nix
+    # Desktop Environment
+    ../../modules/desktop/gnome.nix
+
+    # Hardware
+    ./hardware-configuration.nix
+
+    # System modules
+    ../../modules/system/common.nix
+    ../../modules/system/graphics.nix
+    ../../modules/system/audio.nix
+    ../../modules/system/network.nix
+    ../../modules/system/services.nix
+    ../../modules/system/gaming.nix
+    ../../modules/system/virtualization.nix
+    ../../modules/system/nix-settings.nix
+    ../../modules/system/kernel.nix
+
+    # System applications
     ../../apps/systemApps.nix
-    ../../system/graphics.nix
-    ../../system/audio.nix
-    ../../system/network.nix
-    ../../system/services.nix
-    ../../system/gaming.nix
-    ../../system/virtualization.nix
-    ../../system/nix-settings.nix
-    ../../system/kernel.nix
-    ../../system/virtualization.nix
   ];
 
   # User & Security
@@ -23,8 +30,13 @@
     group = "halozra";
     description = "halozra";
     home = "/home/halozra";
-    extraGroups = [ "networkmanager" "wheel" "vboxusers" ]; # Tambah vboxusers jika pakai VirtualBox
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "vboxusers"
+    ];
   };
+
   users.groups.halozra = {};
 
   users.users.root = {

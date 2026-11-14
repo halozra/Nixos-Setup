@@ -19,16 +19,16 @@
   # JALUR NINJA BARU: Cukup panggil modul di bawah ini, beres!
   imports = [
     # Aplikasi & Modul Dasar
-    ../../apps/apps.nix
-    ../modules/fastfetch.nix
-    ../modules/fish.nix
-    ../modules/kitty.nix
-    ../modules/fonts.nix
-    ../modules/themes.nix
-    ../modules/dolphin.nix
+    ../../modules/apps/apps.nix
+    ../../modules/modules/fastfetch.nix
+    ../../modules/modules/fish.nix
+    ../../modules/modules/kitty.nix
+    ../../modules/modules/fonts.nix
+    ../../modules/modules/themes.nix
+    ../../modules/modules/dolphin.nix
 
     # # kalau mau pakai gnome aktifkan ini aja
-    # ../modules/desktop-gnome.nix
+    ../modules/desktop-gnome.nix
     # # kalau mau pakai hyprland aktifkan ini aja
     # ../modules/desktop-hyprland.nix # <-- Tinggal buka comment ini kalau di PC mau pake Hyprland juga!
   ];
