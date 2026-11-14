@@ -6,7 +6,7 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    extraCompatPackages = [ pkgs.gamemode ];
+    # Gamemode otomatis terdeteksi jika programs.gamemode.enable bernilai true
   };
 
   # Feral GameMode untuk memaksa CPU ke mode Performance saat main game

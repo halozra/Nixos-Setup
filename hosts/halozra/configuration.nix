@@ -16,9 +16,9 @@
     ../../modules/system/network.nix
     ../../modules/system/services.nix
     ../../modules/system/gaming.nix
-    ../../modules/system/virtualization.nix
     ../../modules/system/nix-settings.nix
     ../../modules/system/kernel.nix
+    # ../../modules/system/virtualization.nix
 
     # System applications
     ../../apps/systemApps.nix
@@ -40,7 +40,7 @@
   users.groups.halozra = {};
 
   users.users.root = {
-    hashedPassword = "$6$KJs7SY/zbQ63dr5p$fczoIHq9lXpzshaznNWmrLwYyLxoojZsQOxC.nHw3O0uqUmxrtx1INrYCkcCG.0nnJjyTnVtQO3UILS1TrcOj0";
+    
   };
 
   system.stateVersion = "26.05";

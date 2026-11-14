@@ -4,31 +4,22 @@
 
     # ── Terminal & Shell
     kitty
-    fish
     starship
     tree
     wget
-    xz
 
     # ── Development Tools
-    gcc
     git
     nodejs
-    python312Packages.pip
-    vim
     neovim
     vscode
     unityhub
     drawio
 
     # ── Gaming Tools
-    steam
     steam-run
-    gamescope
     lutris
     mangohud
-    dxvk
-    vkd3d
     wineWow64Packages.full
     winetricks
     protontricks
@@ -42,11 +33,9 @@
     krita
     kdePackages.kdenlive
     godotPackages_4_4.godot
-    cacert
 
     # ── Internet & Communication
-    
-    #discord
+    discord
 
     # ── Database Tools
     mongodb-compass
@@ -54,9 +43,7 @@
 
     # ── System Utilities
     home-manager
-    gparted
     unrar
-    flatpak
     kdePackages.ark
     pavucontrol
     easyeffects
@@ -65,7 +52,7 @@
     gns3-gui
     gns3-server
 
-    # Browser
+    # ── Browser
     librewolf
     google-chrome
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
