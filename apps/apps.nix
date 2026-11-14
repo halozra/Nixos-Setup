@@ -46,7 +46,7 @@
 
     # ── Internet & Communication
     
-    discord
+    #discord
 
     # ── Database Tools
     mongodb-compass

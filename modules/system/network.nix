@@ -19,6 +19,7 @@
     
     # Blokir semua port masuk secara default demi keamanan
     allowPing = true; # Izinkan komputer kamu di-ping (opsional)
+    allowedUDPPorts = [ 5678 ];
     
     # Jika kelak kamu butuh buka port tertentu (misal buat web dev / sharing):
     # allowedTCPPorts = [ 80 443 8080 ];

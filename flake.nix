@@ -39,9 +39,8 @@
               inherit inputs;
             };
 
-            home-manager.users.halozra =
-              import ./home.nix;
-          }
+            home-manager.users.halozra = import ./hosts/halozra/home.nix;
+            }
         ];
       };
     };
