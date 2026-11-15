@@ -15,6 +15,7 @@
     vscode
     unityhub
     drawio
+    android-tools
 
     # ── Gaming Tools
     steam-run
