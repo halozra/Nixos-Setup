@@ -6,6 +6,9 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+    extraPackages = with pkgs; [
+    mangohud
+    ];
     # Gamemode otomatis terdeteksi jika programs.gamemode.enable bernilai true
   };
 
