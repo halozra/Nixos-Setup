@@ -1,3 +1,4 @@
+
 { pkgs, ... }:
 
 {
@@ -5,28 +6,31 @@
   # KERNEL CONFIGURATION & OPTIMIZATION
   # =========================================================================
 
-  # Menggunakan kernel Linux versi terbaru stabil (Sangat bagus untuk hardware modern)
+  # Latest stable kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # Parameter Tambahan Kernel (Sysctl) untuk Optimasi Sistem
+  # Kernel Parameters
+  boot.kernelParams = [
+    # AMD GPU PowerPlay feature mask
+    # Aktifkan hanya jika memang diperlukan
+    "amdgpu.ppfeaturemask=0xffffffff"
+  ];
+
+  # Kernel Sysctl
   boot.kernel.sysctl = {
-    # 1. Mengurangi penggunaan SWAP (Biar RAM utama lebih diprioritaskan)
+    # Memory optimization
     "vm.swappiness" = 10;
 
-    # 2. Menaikkan batas max file watch (Penting agar VS Code/Go-lang tidak kehabisan limits saat indexing project besar)
+    # File watcher limit
     "fs.inotify.max_user_watches" = 524288;
 
-    # 3. Optimasi Network TTL (Pindahan dari common.nix kemarin)
+    # Network TTL
     "net.ipv4.ip_default_ttl" = 64;
   };
 
-  # Modul Kernel Tingkat Rendah yang otomatis dimuat saat booting
-  boot.kernelModules = [ 
-    "i2c-dev" 
-    "i2c-piix4" # Untuk kontrol hardware / RGB / sensor lewat i2c-tools
+  # Kernel Modules
+  boot.kernelModules = [
+    "i2c-dev"
+    "i2c-piix4"
   ];
-
-  # Bersihkan layar bootloader dari text log sistem yang berantakan (Opsional - Mode Cantik)
-  # boot.consoleLogLevel = 3;
-  # boot.kernelParams = [ "quiet" "splash" ];
 }

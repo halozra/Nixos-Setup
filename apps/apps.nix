@@ -33,8 +33,7 @@
     gimp
     krita
     kdePackages.kdenlive
-    godotPackages_4_4.godot
-
+    godotPackages_4_7.godot
     # ── Internet & Communication
     discord
 
@@ -52,6 +51,8 @@
     winbox
     gns3-gui
     gns3-server
+    protontricks
+    protonup-qt
 
     # ── Browser
     librewolf

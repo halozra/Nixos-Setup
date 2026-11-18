@@ -8,6 +8,9 @@
   services.gvfs.enable = true;
   services.udisks2.enable = true;
 
+  #Undervolting software
+  services.lact.enable = true;
+
   # =========================================================================
   # DATABASE SERVICES (Opsional)
   # =========================================================================

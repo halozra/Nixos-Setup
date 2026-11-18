@@ -42,10 +42,11 @@
     waybar
     swaynotificationcenter # (swaync)
     wlogout
+    
 
     # Launcher & Wallpaper
     fuzzel          # Launcher super ringan berbasis Wayland (atau ganti rofi-wayland)
-    swww            # Daemon wallpaper animasi/statis
+    awww            # Daemon wallpaper animasi/statis
     swaylock-effects # Layar kunci (lockscreen)
 
     # Utilitas Screenshot, Clipboard, & Sistem
