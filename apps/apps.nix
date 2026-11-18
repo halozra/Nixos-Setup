@@ -53,6 +53,7 @@
     gns3-server
     protontricks
     protonup-qt
+    steamtinkerlaunch
 
     # ── Browser
     librewolf
