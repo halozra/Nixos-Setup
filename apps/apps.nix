@@ -50,18 +50,20 @@
     gh
     lazygit
 
-    # Build tools
+    # ==========================================
+    # BUILD TOOLS
+    # ==========================================
     gcc
-    clang
     gnumake
     cmake
     ninja
     gdb
     pkg-config
 
-    # Language servers & formatters
+    # ==========================================
+    # LANGUAGE SERVERS & FORMATTERS
+    # ==========================================
     gopls
-    clang-tools
     typescript
     typescript-language-server
     prettier

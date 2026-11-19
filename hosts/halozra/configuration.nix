@@ -20,6 +20,7 @@
     ../../modules/system/nix-settings.nix
     ../../modules/system/kernel.nix
     # ../../modules/system/virtualization.nix
+     #../../modules/system/database.nix
 
     # System applications
     ../../apps/systemApps.nix
