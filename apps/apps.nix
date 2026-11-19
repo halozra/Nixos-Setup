@@ -62,9 +62,9 @@
     # Language servers & formatters
     gopls
     clang-tools
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-    nodePackages.prettier
+    typescript
+    typescript-language-server
+    prettier
 
     # Code quality
     shellcheck
