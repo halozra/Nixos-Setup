@@ -49,6 +49,7 @@
     vscode
     gh
     lazygit
+    git
 
     # ==========================================
     # BUILD TOOLS
@@ -69,6 +70,7 @@
     prettier
 
     # Code quality
+    
     shellcheck
     shfmt
 
