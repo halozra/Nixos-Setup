@@ -1,31 +1,23 @@
+
 { pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
+  environment.systemPackages = with pkgs; [
 
-environment.systemPackages = with pkgs; [
-  mongodb-ce
-  ntfs3g
-  vulkan-tools
-  vulkan-utility-libraries
-  vulkan-validation-layers
+    # Hardware Diagnostics
+    lm_sensors
+    i2c-tools
+    pciutils
+    usbutils
+    smartmontools
+    nvme-cli
 
-  gnutls
-  dconf
-  glib-networking
-  xdg-utils
-  lm_sensors
-  earlyoom
-  polkit
-  polkit_gnome
-  gamemode
-  steam
-  i2c-tools
-  fastfetch
-  kdePackages.dolphin
+    # Filesystem
+    ntfs3g
 
-];
+    # Graphics & Vulkan Diagnostics
+    vulkan-tools
+    vulkan-validation-layers
 
-
-
+  ];
 }
