@@ -11,16 +11,7 @@
     ./hardware-configuration.nix
 
     # System modules
-    ../../modules/system/common.nix
-    ../../modules/system/graphics.nix
-    ../../modules/system/audio.nix
-    ../../modules/system/network.nix
-    ../../modules/system/services.nix
-    ../../modules/system/gaming.nix
-    ../../modules/system/nix-settings.nix
-    ../../modules/system/kernel.nix
-    # ../../modules/system/virtualization.nix
-     #../../modules/system/database.nix
+    ../../modules/system
 
     # System applications
     ../../apps/systemApps.nix
