@@ -2,6 +2,7 @@
 { pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
   imports = [
     # Desktop Environment
     ../../modules/desktop/kde.nix
